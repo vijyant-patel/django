@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <a href="{% url 'interview_01:AddShop' %}">Add Shop</a>
+    {% for shop in shops %}
+    <p>{{ shop.name }} - <a href="{% url 'interview_01:EditShop' shop.id %}">Edit Shop</a> <a href="{% url 'interview_01:DeleteShop' shop.id %}">Delete Shop</a> </p>
+    {% endfor %}
+    
+</body>
+</html>

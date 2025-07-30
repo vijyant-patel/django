@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <a href="{% url 'interview_02:interview_02-add' %}">Add Task</a>
+    {% if tasks %}
+        {% for task in tasks %}
+            <p>{{task.title}}</p>
+            <a href="{% url 'interview_02:interview_02-edit' task.id %}">edit</a>
+            <a href="{% url 'interview_02:interview_02-delete' task.id %}">delete</a>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

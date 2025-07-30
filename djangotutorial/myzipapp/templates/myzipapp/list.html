@@ -1,0 +1,14 @@
+<h2>Uploaded ZIP Files</h2>
+<form method="post" action="{% url 'myzipapp:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+<ul>
+  {% for zip in zips %}
+    <li>
+      {{ zip.file.name }} -
+      <a href="{% url 'myzipapp:download_zip' zip.pk %}">Download</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'myzipapp:upload_zip' %}">Upload Another</a>
